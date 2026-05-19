@@ -1,3 +1,5 @@
+#inicio
+
 from validaciones import mostrar_menu
 from validaciones import validar_contra_vacia
 from validaciones import validar_seguridad
@@ -11,7 +13,7 @@ contraseña = input("¡Bienvenidx! Por favor, ingrese su contraseña: ")
 contraseña = validar_contra_vacia(contraseña)
 opcion = 0
 
-while opcion != 8:
+while opcion != 7:
     mostrar_menu()
     opcion = int(input("Seleccione la opcion que desea ejecutar: "))
     match opcion:     
@@ -22,8 +24,8 @@ while opcion != 8:
         case 5: generar_reporte(contraseña)
         case 6: verificar_palindromo(contraseña)
         # case 7: ordenar_caracteres(contraseña)
-        case 8: print("Saliendo del sistema")
+        case 7: print("Saliendo del sistema")
         case _: print("Opción inválida")
 
 
-        #fin<3
+        #fin

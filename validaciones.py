@@ -1,5 +1,9 @@
-def mostrar_menu():
-    
+def mostrar_menu() -> None:
+    """
+    Muestra el menú del programa al usuario,
+    para que visualice las opciones disponibles
+    """
+
     print("***********************************")
     print("1- Validar nivel de seguridad")
     print("2- Contar tipos de caracteres")
@@ -7,11 +11,18 @@ def mostrar_menu():
     print("4- Mostrar contraseña invertida")
     print("5- Generar reporte estadístico")
     print("6- Verificar si es palíndromo")
-    print("7- Ordenar caracteres de la contraseña")
-    print("8- Salir")
+    #print("7- Ordenar caracteres de la contraseña")
+    print("7- Salir")
     print("***********************************")
-def validar_contra_vacia(contraseña):
-    
+def validar_contra_vacia(contraseña: str) -> str:
+    """
+    valida que la contraseña cumpla con todo lo solicitado:
+    -que tenga al menos 8 caracteres
+    -que no comience con espacios
+    -que contenga al menos una letra
+
+    devuelve (return) una contraseña válida.
+    """
     es_valida = False #while flag
 
     while es_valida == False:
@@ -38,7 +49,10 @@ def validar_contra_vacia(contraseña):
             return contraseña
 
         contraseña = input("Ingrese otra contraseña: ")       
-def validar_seguridad(contraseña):
+def validar_seguridad(contraseña: str) -> None:
+    """
+    verifica si la contraseña es débil, media o fuerte.
+    """
     solo_letras = True
     letras_y_numeros = False
     tiene_simbolos = False
@@ -68,8 +82,11 @@ def validar_seguridad(contraseña):
 
     elif len(contraseña) >= 8 and len(contraseña) <= 9 and solo_letras == True:
         print("********************\nLa contraseña es débil\n********************")
-def contar_tipos_caracteres(contraseña):
-
+def contar_tipos_caracteres(contraseña: str) -> None:
+    """
+    cuenta la cantidad de letras, números,
+    símbolos y espacios de la contraseña
+    """
     cantidad_letras = 0
     cantidad_numeros = 0
     cantidad_simbolos = 0
@@ -100,7 +117,12 @@ def contar_tipos_caracteres(contraseña):
     print(f"********************\nCantidad de números: {cantidad_numeros}\n********************")
     print(f"********************\nCantidad de símbolos: {cantidad_simbolos}\n********************")
     print(f"********************\nCantidad de espacios: {cantidad_espacios}\n********************")
-def buscar_caracter(contraseña):
+def buscar_caracter(contraseña: str) -> None:
+    """
+    busca un carácter específico solicitado al usuario
+    dentro de la contraseña
+    y muestra sus posiciones y cantidad de apariciones
+    """
     caracter_buscado = input("Ingrese un carácter: ")
     contador_caracter = 0
 
@@ -114,14 +136,21 @@ def buscar_caracter(contraseña):
             print(i)
 
     print(f"Cantidad de veces que aparece: {contador_caracter}")
-def contra_invertida(contraseña):
+def contra_invertida(contraseña: str) -> None:
+    """
+    invierte la contraseña manualmente,
+    muestra la contraseña invertida.
+    """
     invertida = "" #guarda la variable para la contraseña invertida (crea una cadena vacía)
 
     for i in range(len(contraseña) - 1, -1, -1): #(inicio, fin, salto), va de atras hacia adelante de a 1, frenando en el primer caracter
         invertida += contraseña[i]
     print(f"Contraseña original: {contraseña}, contraseña invertida: {invertida}")
-def generar_reporte (contraseña):
-
+def generar_reporte(contraseña: str) -> None:
+    """
+    genera un reporte estadístico de la contraseña:
+    longitud, porcentajes y repeticiones consecutivas
+    """
     print("Resporte estadistico: ")
     cantidad_letras = 0
     cantidad_numeros = 0
@@ -167,7 +196,10 @@ def generar_reporte (contraseña):
             print(f"1 repetición de {contraseña[i]}") #ver como poner la cantidad total de cada caracter
 
     print(f"Cantidad total de repeticiones: {cantidad_repeticiones}")
-def verificar_palindromo(contraseña):
+def verificar_palindromo(contraseña: str) -> None:
+    """
+    verifica si la contraseña es un palíndromo
+    """
     #reutilizo codigo de contra_invertida
     invertida = "" #guarda la variable para la contraseña invertida (crea una cadena vacía)
 
